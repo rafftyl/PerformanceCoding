@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4132957717720606}
-  - component: {fileID: 114288454793893534}
+  - component: {fileID: 114218246906074670}
   m_Layer: 0
-  m_Name: TransformMoverOptimized
+  m_Name: ObjectSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114288454793893534
+--- !u!114 &114218246906074670
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,12 +48,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326868259834878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1e1f92b3a8c394896cf7f2876e8126, type: 3}
+  m_Script: {fileID: 11500000, guid: 265e9660939dc19449d05d5b665f9a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 1740831156589972, guid: 95eb8ac1ccacb84438764f9ae7231807,
     type: 2}
   separation: 1.2
-  sizeX: 100
+  sizeX: 10
   sizeY: 10
   sizeZ: 10
