@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FPSCounter : MonoBehaviour
 {
     public Text text;
-    public int frameBatchSize = 10;
+    public int frameBatchSize = 20;
     private int frameCounter = 0;
     float accumulatedTime = 0;
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class FPSCounter : MonoBehaviour
             frameCounter = 0;
             float meanFrameTime = accumulatedTime / frameBatchSize;
             accumulatedTime = 0;
-            text.text = (1/meanFrameTime).ToString() + "fps";
+            text.text = (1 / meanFrameTime).ToString() + "fps";
         }
 	}
 }
