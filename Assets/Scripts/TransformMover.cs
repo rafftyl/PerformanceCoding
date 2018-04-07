@@ -2,31 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct MoveData
+{
+    public float movementFrequency;
+    public float movementAmplitude;
+    public float phaseOffset;
+    public Vector3 movementDir;
+    public float angularSpeed;
+}
+
 public class TransformMover : MonoBehaviour
 {
-    float movementFrequency;
-    float movementAmplitude;
-    float phaseOffset;
-    Vector3 movementDir;
-
-    float angularSpeed;
-
+    MoveData data;
     private void Start()
     {
-        movementAmplitude = Random.Range(1.0f, 3.0f);
-        movementFrequency = 2 * Mathf.PI * Random.Range(1.0f, 3.0f);
-        phaseOffset = Mathf.PI * Random.Range(0.0f, 2.0f);
-        movementDir = Random.insideUnitSphere.normalized;
-        angularSpeed = Random.Range(20.0f, 50.0f);
+        data.movementAmplitude = Random.Range(1.0f, 3.0f);
+        data.movementFrequency = 2 * Mathf.PI * Random.Range(1.0f, 3.0f);
+        data.phaseOffset = Mathf.PI * Random.Range(0.0f, 2.0f);
+        data.movementDir = Random.insideUnitSphere.normalized;
+        data.angularSpeed = Random.Range(20.0f, 50.0f);
     }
 
     void Update ()
     {
         transform.position +=
-            movementDir *
-            movementFrequency *
-            movementAmplitude *
-            Mathf.Cos(Time.time + phaseOffset) * Time.deltaTime;
-        transform.rotation *= Quaternion.AngleAxis(angularSpeed * Time.deltaTime, movementDir);
+            data.movementDir *
+            data.movementFrequency *
+            data.movementAmplitude *
+            Mathf.Cos(Time.time + data.phaseOffset) * Time.deltaTime;
+        transform.rotation *= Quaternion.AngleAxis(data.angularSpeed * Time.deltaTime, data.movementDir);
 	}
 }

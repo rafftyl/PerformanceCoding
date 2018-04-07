@@ -9,14 +9,20 @@ public class ObjectSpawner : MonoBehaviour
     public int sizeX = 10;
     public int sizeY = 10;
     public int sizeZ = 10;
+    public bool spawnOnStart = true;
 
     private void Start()
     {
-        SpawnObjects();
+        if(spawnOnStart)
+        {
+            SpawnObjects();
+        }        
     }
 
-    private void SpawnObjects()
+    public Transform[] SpawnObjects()
     {
+        Transform[] result = new Transform[sizeX * sizeY * sizeZ];
+        int index = 0;
         for(int x = 0; x < sizeX; ++x)
         {
             float xPos = separation * (x - sizeX / 2);
@@ -27,9 +33,12 @@ public class ObjectSpawner : MonoBehaviour
                 {
                     float zPos = separation * (z - sizeZ / 2); ;
                     Vector3 position = transform.position + new Vector3(xPos,yPos,zPos);
-                    Instantiate<GameObject>(objectPrefab, position, Quaternion.identity);
+                    GameObject obj = Instantiate<GameObject>(objectPrefab, position, Quaternion.identity);
+                    result[index] = obj.transform;
+                    ++index;
                 }
             }            
         }
+        return result;
     }
 }
